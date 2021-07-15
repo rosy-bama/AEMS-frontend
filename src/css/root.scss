@@ -3,7 +3,10 @@
 @import './nav.scss';
 @import './template.scss';
 @import './forms.scss';
+@import 'table';
 @import './home.scss';
+@import './dashboad/index';
+@import './utils';
 
 * {
     padding: 0;
@@ -14,4 +17,26 @@
 
 .hidden {
     visibility: hidden;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid
+}
+
+body #root {
+    a {
+        text-decoration: none
+    }
+
+    p {
+        line-height: 1.5
+    }
+
+    ul {
+        list-style: none
+    }
 }

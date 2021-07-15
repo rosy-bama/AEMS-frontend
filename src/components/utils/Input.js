@@ -47,9 +47,9 @@ export const InputCheckbox = ({ label, name, value, ...rest }) => (
         <label htmlFor={name}>{label}</label>
     </div>
 )
-export const InputRadio = ({ label, name, value, handleChange, ...rest }) => (
-    <div className="radios" onChange={(e) => handleChange(e)}>
-        <input type="radio" id={name} name={name} value={value} {...rest} />
+export const InputRadio = ({ label, name, value, ...rest }) => (
+    <div className="radios">
+        <input type="radio" checked={value} id={name} name={name} value={label} {...rest} />
         <label htmlFor={name}>{label}</label>
     </div>
 )

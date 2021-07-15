@@ -13,7 +13,8 @@ function Home() {
                         <button className="get-started">Get Started</button>
                         
                     </div>
-                    <div className="right-curve">
+                    <div className="right-container">
+                        <div className="right-curve"></div>
 
                     </div>
                 </div>

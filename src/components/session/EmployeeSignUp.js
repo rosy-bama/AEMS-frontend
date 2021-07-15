@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Template from './Template'
 import Input from '../utils/Input'
 
@@ -15,11 +15,16 @@ function EmployeeSignup() {
         "password": ""
     })
 
-    const [postList, setPostList] = useState(["Engineer","Marketer","Project Managers"])
+    const [postList, setPostList] = useState(["Engineer", "Marketer", "Project Managers"])
 
     const handleChange = (e) => {
+        if (e.target.name === "gender") {
+            console.log(e.target.value);
+        }
         setState({ ...state, [e.target.name]: e.target.value })
     }
+
+
 
     const attribs = {
         onChange: handleChange
@@ -65,7 +70,7 @@ function EmployeeSignup() {
                     </div>
 
                     <div className="employee_info grid-group">
-                    
+
                         <div className="input-group">
                             <label className="input-label">Current Post</label>
                             <select
@@ -74,13 +79,13 @@ function EmployeeSignup() {
                                 className="select_input"
                                 {...attribs}>
                                 <option></option>
-                                {postList.map((employee_post) => <option value={employee_post}>{ employee_post}</option> )}
+                                {postList.map((employee_post) => <option value={employee_post}>{employee_post}</option>)}
                             </select>
                         </div>
 
                         <div className="input-group">
                             <label className="input-label">Start Date</label>
-                            <input type="date" name="start_date" {...attribs}/>
+                            <input type="date" name="start_date" {...attribs} />
                         </div>
                     </div>
 
@@ -93,14 +98,14 @@ function EmployeeSignup() {
                                 label="female"
                                 {...attribs}
                             />
-                            
+
                             <Input
                                 type="radio"
                                 name="gender"
                                 label="male"
                                 {...attribs}
                             />
-                            
+
                         </div>
                         <div>
                         </div>

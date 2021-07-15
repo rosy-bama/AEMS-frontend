@@ -1,0 +1,55 @@
+@import '../colors'
+
+#{$aems-dashboard}
+    width: 100%
+
+    .dashboard-nav-container
+        width: 270px
+        min-height: calc( 100vh - 80px)
+        height: 100%
+        position: relative
+
+        @include breakpoint($breakpoint-mini-desktop, false)
+            width: 220px
+
+        .nav-bars
+            position: absolute
+            left: 0
+            width: 100%
+            height: 100%
+
+            nav
+                a
+                    display: block
+                    color: $dark
+
+                    &.active
+                        border-left: 3px solid $main-1
+                        // background-color: $hover-white
+
+                        li
+                            color: $main-1
+
+                    li
+                        font-size: 10px
+                        padding: 13px 10px 13px 20px
+
+                        @include breakpoint($breakpoint-mini-desktop, true)
+                            padding-top: 15px
+                            padding-bottom: 15px
+                            font-size: 13px
+
+                    &:hover
+                        background-color: $hover-white
+
+    .dashboard-content
+        background-color: darken($hover-white, 3%)
+        width: 100%
+
+        .dashboard-title
+            text-transform: uppercase
+            background-color: $white
+
+            @include breakpoint($breakpoint-mini-desktop, true)
+                padding-top: 13px
+                padding-bottom: 13px

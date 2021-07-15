@@ -1,0 +1,25 @@
+@import '../colors'
+
+#{$aems-dashboard-content}
+    // company
+    .overview
+        .card-container
+            .card
+                background-color: $white
+                border-radius: 7px
+
+                .wrapper
+                    padding: 30px
+
+                    h3.__card-title
+                        font-size: 16px
+                        letter-spacing: 0.76px
+                        text-transform: uppercase
+                        font-stretch: extra-expanded
+                        color: $dark
+
+                        @include breakpoint($breakpoint-mini-desktop, true)
+                            margin-bottom: 25px
+
+                    .card-count
+                        font-size: 14px

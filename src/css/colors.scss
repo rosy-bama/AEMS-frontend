@@ -1,3 +1,7 @@
+// path
+$aems-dashboard: '#root .aems--dashboard-container .dashboard .dashboard-layout';
+$aems-dashboard-content: '#root .aems--dashboard-container .dashboard .dashboard-layout .dashboard-content';
+
 $red : "red";
 $shadows : rgba(0, 0, 0, 0.2);
 $white: #fff;
@@ -5,3 +9,34 @@ $input-text: rgba(0, 0, 0, 0.7);
 $main-1: #2898ff;
 $main-2: #21c5d0;
 $main-3: #66ECF5;
+$dark: #121a2b;
+$hover-white: #e1e0e0bd;
+
+//*********************
+//BREAKPOINTS
+//*********************
+
+// A map of breakpoints.
+$breakpoint-mobile-small-device: 21rem; // 320px
+$breakpoint-mobile-device: 30rem; // 480px
+$breakpoint-tablet-mobile-small: 32.5rem; // 520px
+$breakpoint-tablet: 48rem; // 768px
+$breakpoint-small-screen-laptop: 64rem; // 1024px
+$breakpoint-mini-desktop: 85.5rem; // 1366px
+$breakpoint-desktop: 100rem; // 1600px
+$breakpoint-full-hd: 120rem; // 1920px
+$breakpoint-1200: 1200px;
+
+@mixin breakpoint($breakpoint, $is_min_width) {
+    @if $is_min_width {
+        @media (min-width: $breakpoint) {
+            @content
+        }
+
+    } @else {
+
+        @media (max-width: $breakpoint) {
+            @content
+        }
+    }
+};

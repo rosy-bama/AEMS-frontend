@@ -1,0 +1,108 @@
+@import './colors'
+
+html body #root
+    // Grid
+    .grid
+        grid-template-columns: repeat(12, 1fr)
+        grid-gap: 20px
+
+        @include breakpoint($breakpoint-mobile-device, false)
+            @for $index from 1 through 12
+                .col-xs-#{$index}
+                    grid-column: span #{$index}
+
+        @include breakpoint($breakpoint-mobile-device, true)
+            @for $index from 1 through 12
+                .col-sm-#{$index}
+                    grid-column: span #{$index}
+
+        @include breakpoint($breakpoint-small-screen-laptop, true)
+            @for $index from 1 through 12
+                .col-md-#{$index}
+                    grid-column: span #{$index}
+
+        @include breakpoint($breakpoint-mini-desktop, true)
+            @for $index from 1 through 12
+                .col-lg-#{$index}
+                    grid-column: span #{$index}
+
+html body #root
+    // default maging padding
+    @for $index from 0 through 100
+        .mg-#{$index}
+            margin: #{$index}px
+
+        .mg-t-#{$index}
+            margin-top: #{$index}px
+
+        .mg-r-#{$index}
+            margin-right: #{$index}px
+
+        .mg-b-#{$index}
+            margin-bottom: #{$index}px
+
+        .mg-l-#{$index}
+            margin-left: #{$index}px
+
+        .pd-#{$index}
+            padding: #{$index}px
+
+        .pd-t-#{$index}
+            padding-top: #{$index}px
+
+        .pd-r-#{$index}
+            padding-right: #{$index}px
+
+        .pd-b-#{$index}
+            padding-bottom: #{$index}px
+
+        .pd-l-#{$index}
+            padding-left: #{$index}px
+
+    /* Positional alignment */
+    .justify
+        justify-content: normal
+        &-start
+            justify-content: start
+        &-center
+            justify-content: center
+        &-end
+            justify-content: end
+        &-left
+            justify-content: left
+        &-right
+            justify-content: right
+        &-space-between
+            justify-content: space-between
+        &-space-around
+            justify-content: space-around
+        &-space-evenly
+            justify-content: space-evenly
+        &-stretch
+            justify-content: stretch
+        &-center
+            justify-content: center
+
+    /* Positional alignment */
+    .align
+        align-items: normal
+        &-start
+            align-items: start
+        &-center
+            align-items: center
+        &-end
+            align-items: end
+        &-left
+            align-items: left
+        &-right
+            align-items: right
+        &-space-between
+            align-items: space-between
+        &-space-around
+            align-items: space-around
+        &-space-evenly
+            align-items: space-evenly
+        &-stretch
+            align-items: stretch
+        &-center
+            align-items: center

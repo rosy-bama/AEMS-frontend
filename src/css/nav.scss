@@ -1,15 +1,17 @@
-img.logo {
-    width: 100px;
-}
+@import './colors';
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 10px 50px;
     border: 1px solid transparent;
     border-bottom-color: rgb(234, 234, 234);
     // box-shadow: 0px 1px 20px 5px $shadows;
+
+    img.logo {
+        width: 100px;
+    }
 
     ul {
         list-style-type: none;
@@ -32,5 +34,9 @@ img.logo {
             }
 
         }
+    }
+
+    .nav-name {
+        font-size: 20px;
     }
 }
