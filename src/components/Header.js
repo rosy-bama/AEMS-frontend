@@ -8,6 +8,9 @@ export function Header({ getStarted }) {
         textDecoration: 'none',
     };
 
+    let index = window.location.pathname.split('/').indexOf('dashboard') + 1;
+    const company_name = window.location.pathname.split('/')[index];
+
     return (
         <Fragment>
             <header className='header'>
@@ -26,7 +29,7 @@ export function Header({ getStarted }) {
                         </Link>
                     </ul>
                 ) : (
-                    <h1 className='nav-name'>{window.location.pathname.split('/').slice(-1).pop().toLocaleUpperCase()}</h1>
+                    <h1 className='nav-name'>{company_name}</h1>
                 )}
             </header>
         </Fragment>

@@ -7,13 +7,6 @@ const employeeData = [
     { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
     { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
     { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
 ];
 
 // Create a SearchTableApp Component
@@ -40,7 +33,7 @@ class SearchTableApp extends React.Component {
 
         if (searchString.length > 0) {
             // We are searching. Filter the results.
-            employees = employees.filter((e) => e.name.toLowerCase().match(searchString));
+            employees = employees.filter((e) => e.firstname.toLowerCase().match(searchString));
         }
         // Set the `update` property of the `UserInput` element
         return (
@@ -71,9 +64,9 @@ class TableRow extends React.Component {
     render() {
         return (
             <tr>
-                <td>{this.props.name}</td>
-                <td>{this.props.title}</td>
-                <td>{this.props.salary}</td>
+                {Object.values(this.props.data).map((data, i) => (
+                    <td key={i}>{data}</td>
+                ))}
             </tr>
         );
     }
@@ -84,24 +77,22 @@ class Table extends React.Component {
     //     super(props);
     // }
     render() {
-        let keys = Object.values(employeeData);
-        keys = Object.keys(keys);
-        console.log(keys);
+        const keys = [];
+        for (const [key] of Object.entries(employeeData[0])) {
+            keys.push(key);
+        }
 
         return (
             <div>
                 <table className='table'>
                     <tbody>
                         <tr>
-                            {Object.values(keys).map((emp) => (
-                                <th>{emp}</th>
+                            {Object.values(keys).map((key) => (
+                                <th key={key}>{key}</th>
                             ))}
-                            {/* <th>Name</th>
-                            <th>Title</th>
-                            <th>Salary</th> */}
                         </tr>
                         {this.props.data.map(function (d, i) {
-                            return <TableRow key={'person-' + i} name={d.name} salary={d.salary} title={d.title} />;
+                            return <TableRow key={'person-' + i} data={d} />;
                         })}
                     </tbody>
                 </table>

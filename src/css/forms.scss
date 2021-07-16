@@ -36,6 +36,17 @@
         width: 100%;
     }
 
+    .input {
+        padding: 5px 0;
+        margin-top: 15px;
+
+        .input-label {
+            font-size: 14px;
+            padding: 10px 0px 6px 0px;
+            color: $input-text;
+        }
+    }
+
     .input-group {
         display: grid;
         padding: 5px 10px;

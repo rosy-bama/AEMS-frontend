@@ -1,15 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import GeneralNav from '..';
 import { ROUTE_LINKS } from '../../utils/routing';
 
 function Layout({ isOwner = false, isHR = false, isEmployee = false, children }) {
     const navs = ROUTE_LINKS.DASHBOARD;
+    const [currentTab, setCurrentTab] = useState('HOME');
+
+    const handleChangeTab = (tab) => setCurrentTab(tab);
 
     useEffect(() => {
-        const nav = document.querySelector('#HOME');
-        nav.classList.add('active');
-    }, []);
+        setCurrentTab(window.location.pathname.split('/').slice(-1).pop().toLocaleUpperCase());
+        if (document.querySelector('.navs')) {
+            Array.from(document.querySelector('.navs').children).forEach((child) => {
+                child.classList.remove('active');
+            });
+            const nav = document.querySelector(`#${currentTab === 'COMPANY_NAME' ? 'HOME' : currentTab}`);
+            nav.classList.add('active');
+        }
+    }, [currentTab]);
 
     return (
         <div>
@@ -24,7 +33,7 @@ function Layout({ isOwner = false, isHR = false, isEmployee = false, children })
                                             {Object.keys(navs).map((nav) => {
                                                 return (
                                                     <Link to={navs[nav]} id={nav} key={nav}>
-                                                        <li>{nav}</li>
+                                                        <li onClick={() => handleChangeTab(nav)}>{nav}</li>
                                                     </Link>
                                                 );
                                             })}
@@ -33,7 +42,7 @@ function Layout({ isOwner = false, isHR = false, isEmployee = false, children })
                                 </div>
                             </div>
                             <div className='dashboard-content'>
-                                <div className='dashboard-title pd-l-20 pd-r-20 pd-t-10 pd-b-10'>Dashboard</div>
+                                <div className='dashboard-title pd-l-20 pd-r-20 pd-t-10 pd-b-10'>{currentTab === 'COMPANY_NAME' ? 'DASHBOARD' : currentTab}</div>
                                 <div className='content pd-20'>{children}</div>
                             </div>
                         </div>
