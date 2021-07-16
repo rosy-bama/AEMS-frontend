@@ -1,7 +1,7 @@
 .bg-template-container {
     // background: url('../assets/background.jpg'), linear-gradient(#eb01a5, #d13531);
-    background:url('../assets/background.jpg') rgba(163, 163, 163, 0.747);
-    background-size:cover;
+    background: url('../assets/background.jpg') rgba(163, 163, 163, 0.747);
+    background-size: cover;
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-position: center;
@@ -30,7 +30,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            
+
             .block-container {
                 p {
                     line-height: 1.45;
@@ -39,6 +39,10 @@
 
                     &:first-child {
                         margin-bottom: 10px;
+                    }
+
+                    img {
+                        width: 300px;
                     }
                 }
             }

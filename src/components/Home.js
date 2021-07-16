@@ -1,5 +1,6 @@
 import React from 'react'
 import GeneralNav from './index'
+import gear from "../assets/modules-settings.png"
 function Home() {
     return (
         <GeneralNav>
@@ -11,7 +12,7 @@ function Home() {
                             Communicate, operate and monitor your employees with AEMS. Easy to use, scalable like no other... Get started today.
                         </p>
                         <button className="get-started">Get Started</button>
-                        
+
                     </div>
                     <div className="right-container">
                         <div className="right-curve"></div>
@@ -20,44 +21,72 @@ function Home() {
                 </div>
 
                 <div className="solutions">
-                    <div>
+                    <h1>Multiple Solutions in one place</h1>
+                    <div className="cards-container">
+
                         <div className="cards">
-                            <span className="icon"></span>
-                            <p className="head">Some Functionality</p>
+                            <span className="icon">
+                                <img src={gear} alt="settings" className="gear"/>
+                            </span>
+                            <p className="head">Some <br/> Functionality</p>
+
                             <div className="card-extend">
-                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum officia voluptatum provident aliquid quo necessitatibus culpa.</p>
+                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                                 <button className="learn-more">Learn More</button>
                             </div>
                         </div>
                         <div className="cards">
-                            <span className="icon"></span>
-                            <p className="head"></p>
+                            <span className="icon">
+                            <img src={gear} alt="settings" className="gear"/>
+
+                            </span>
+                            <p className="head">Some <br/>Functionality</p>
                             <div className="card-extend">
-                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum officia voluptatum provident aliquid quo necessitatibus culpa.</p>
+                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                                 <button className="learn-more">Learn More</button>
                             </div>
                         </div>
                         <div className="cards">
-                            <span className="icon"></span>
-                            <p className="head">Some Functionality</p>
+                            <span className="icon">
+                                <img src={gear} alt="settings" className="gear"/>
+
+                            </span>
+                            <p className="head">Some <br/>Functionality</p>
                             <div className="card-extend">
-                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum officia voluptatum provident aliquid quo necessitatibus culpa.</p>
+                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                                 <button className="learn-more">Learn More</button>
                             </div>
                         </div>
                         <div className="cards">
-                            <span className="icon"></span>
-                            <p className="head">Some Functionality</p>
+                            <span className="icon">
+                            <img src={gear} alt="settings" className="gear"/>
+
+                            </span>
+                            <p className="head">Some <br/>Functionality</p>
                             <div className="card-extend">
-                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum officia voluptatum provident aliquid quo necessitatibus culpa.</p>
+                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                                 <button className="learn-more">Learn More</button>
                             </div>
                         </div>
                         <div className="cards">
-                            <span className="icon"></span>
-                            <p className="head">Some Functionality</p>
+                            <span className="icon">
+                                <img src={gear} alt="settings" className="gear"/>
+
+                            </span>
+                            <p className="head">Some <br/>Functionality</p>
                             <div className="card-extend">
-                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum officia voluptatum provident aliquid quo necessitatibus culpa.</p>
+                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                                <button className="learn-more">Learn More</button>
+                            </div>
+                        </div>
+                        <div className="cards">
+                            <span className="icon">
+                                <img src={gear} alt="settings" className="gear"/>
+
+                            </span>
+                            <p className="head">Some <br/>Functionality</p>
+                            <div className="card-extend">
+                                <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                                 <button className="learn-more">Learn More</button>
                             </div>
                         </div>
@@ -73,7 +102,7 @@ function Home() {
                             </p>
                             <button className="get-started">Get Started</button>
                         </div>
-                        
+
                     </div>
                     <div className="block">
                         <div className="img"></div>

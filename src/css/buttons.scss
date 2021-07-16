@@ -22,4 +22,12 @@ button {
         background-color: $main-1;
         color: $white;
     }
+
+    &.learn-more {
+        font-size: large;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 50px;
+        color: $white;
+    }
 }
