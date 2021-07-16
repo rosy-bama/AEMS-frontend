@@ -1,14 +1,6 @@
 import React from 'react';
 import Input from './Input';
 
-// Data to pass to our List elements
-const employeeData = [
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-    { firstname: 'John', lastname: 'Doe', role: 'developer', email: 'johndoe@gmail.com', contact: '687643456', department: 'engineeering', manager: 'Shana Eric', startdate: '09/01/2006', salary: 100000 },
-];
-
 // Create a SearchTableApp Component
 class SearchTableApp extends React.Component {
     constructor(props) {
@@ -28,7 +20,7 @@ class SearchTableApp extends React.Component {
 
     render() {
         // Filter the table data
-        let employees = employeeData,
+        let employees = this.props.data,
             searchString = this.state.search.trim().toLowerCase();
 
         if (searchString.length > 0) {
@@ -38,7 +30,7 @@ class SearchTableApp extends React.Component {
         // Set the `update` property of the `UserInput` element
         return (
             <div className='table-container'>
-                <UserInput update={(e) => this.handleChange(e)} />
+                {this.props.search && <UserInput update={(e) => this.handleChange(e)} />}
                 <Table data={employees} />
             </div>
         );
@@ -78,7 +70,7 @@ class Table extends React.Component {
     // }
     render() {
         const keys = [];
-        for (const [key] of Object.entries(employeeData[0])) {
+        for (const [key] of Object.entries(this.props.data[0])) {
             keys.push(key);
         }
 

@@ -23,7 +23,7 @@ export const ROUTE_LINKS = {
     DASHBOARD: {
         HOME: routePath('company_name'),
         EMPLOYEES: routePath(`company_name/employees`),
-        ROLES: routePath(`company_name/roles`),
+        POSITION: routePath(`company_name/position`),
         DEPARTMENTS: routePath(`company_name/departments`),
         PROJECTS: routePath(`company_name/projects`),
         TASKS: routePath(`company_name/tasks`),

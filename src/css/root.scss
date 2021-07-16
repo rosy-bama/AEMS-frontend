@@ -40,3 +40,50 @@ body #root {
         list-style: none
     }
 }
+
+.primary {
+    color: $primary;
+    &-bg {
+        background-color: $primary;
+        color: $white;
+    }
+}
+
+.secondary {
+    color: $secondary;
+    &-bg {
+        background-color: $secondary;
+        color: $white;
+    }
+}
+
+.success {
+    color: $success;
+    &-bg {
+        background-color: $success;
+        color: $white;
+    }
+}
+
+.danger {
+    color: $danger;
+    &-bg {
+        background-color: $danger;
+        color: $white;
+    }
+}
+
+.warning {
+    color: $warning;
+    &-bg {
+        background-color: $warning;
+    }
+}
+
+.info {
+    color: $info;
+    &-bg {
+        background-color: $info;
+    }
+}
+

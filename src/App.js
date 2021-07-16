@@ -6,7 +6,7 @@ import EmailVerification from './components/session/EmailVerification';
 import Company from './components/dashboard/Company';
 import EmployeeSignup from './components/session/EmployeeSignUp';
 import Employee from './components/dashboard/Employee';
-import Roles from './components/dashboard/Roles';
+import Position from './components/dashboard/Position';
 import Department from './components/dashboard/Department';
 import Project from './components/dashboard/Project';
 import Task from './components/dashboard/Task';
@@ -25,7 +25,7 @@ function App() {
                     <Route path='/signup/employee' exact component={EmployeeSignup} />
                     <Route path='/dashboard/:companyname' exact component={Company} />
                     <Route path='/dashboard/:companyname/employees' exact component={Employee} />
-                    <Route path='/dashboard/:companyname/roles' exact component={Roles} />
+                    <Route path='/dashboard/:companyname/position' exact component={Position} />
                     <Route path='/dashboard/:companyname/departments' exact component={Department} />
                     <Route path='/dashboard/:companyname/projects' exact component={Project} />
                     <Route path='/dashboard/:companyname/tasks' exact component={Task} />
