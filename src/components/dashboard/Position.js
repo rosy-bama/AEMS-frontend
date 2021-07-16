@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Input from '../utils/Input';
 import SearchTableApp from '../utils/Table';
 import Layout from './Layout';
@@ -55,10 +55,6 @@ const Position = () => {
 
         return role;
     });
-
-    // useEffect(() => {
-    //     console.log(state);
-    // }, [state]);
 
     return (
         <div>

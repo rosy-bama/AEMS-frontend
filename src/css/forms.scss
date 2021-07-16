@@ -6,6 +6,11 @@
         grid-template-columns: 1fr 1fr;
     }
 
+    @media screen and (min-width: 1281px) {
+        width: 90%;
+        margin: auto;
+    }
+
 }
 ._input {
     border: 1px solid $shadows;
@@ -64,9 +69,7 @@
 
     }
 
-
 }
-
 
 
 .button {
@@ -78,7 +81,3 @@
     margin-top: 20px;
 }
 
-@media screen and (min-width: 1281px) {
-    width: 90%;
-    margin: auto;
-}
