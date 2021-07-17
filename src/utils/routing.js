@@ -18,17 +18,19 @@ class Navigator {
     }
 }
 
+const company = JSON.parse(window.localStorage.getItem('company'));
+
 export const ROUTE_LINKS = {
     // DASHBOARD
     DASHBOARD: {
-        HOME: routePath('company_name'),
-        EMPLOYEES: routePath(`company_name/employees`),
-        POSITION: routePath(`company_name/position`),
-        DEPARTMENTS: routePath(`company_name/departments`),
-        PROJECTS: routePath(`company_name/projects`),
-        TASKS: routePath(`company_name/tasks`),
-        LEAVES: routePath(`company_name/leaves`),
-        ASSISTANCE: routePath(`company_name/assistance`),
+        HOME: routePath(`${company.company_name}`),
+        EMPLOYEES: routePath(`${company.company_name}/employees`),
+        POSITION: routePath(`${company.company_name}/position`),
+        DEPARTMENTS: routePath(`${company.company_name}/departments`),
+        PROJECTS: routePath(`${company.company_name}/projects`),
+        TASKS: routePath(`${company.company_name}/tasks`),
+        LEAVES: routePath(`${company.company_name}/leaves`),
+        ASSISTANCE: routePath(`${company.company_name}/assistance`),
     },
 };
 

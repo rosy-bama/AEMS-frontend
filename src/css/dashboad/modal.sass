@@ -1,0 +1,90 @@
+@import "../colors"
+
+.modal-container
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    background-color: #000000b6
+    z-index: 3
+    overflow: hidden
+
+    &.close
+        display: none
+
+    .__filters
+        .close-btn
+            .btn
+                background: none !important
+                padding: 0 !important
+
+                svg
+                    margin: 0 !important
+                    fill: $dark !important
+
+    .modal-wrapper
+        border-radius: 7px
+        padding: 0
+        width: 100%
+        max-width: 450px
+
+        @include breakpoint($breakpoint-mini-desktop, false)
+            max-width: 350px
+
+            @include breakpoint($breakpoint-tablet-mobile-small, false)
+                max-width: 300px
+
+        h3.__title
+            @include breakpoint($breakpoint-mini-desktop, false)
+                font-size: 14px
+
+                @include breakpoint($breakpoint-tablet-mobile-small, false)
+                    font-size: 12px
+
+        .__card-options,
+            padding: 20px
+            border-bottom: 1px solid $bg-color
+            margin-bottom: 0 !important
+
+            @include breakpoint($breakpoint-tablet-mobile-small, false)
+                padding: 0
+                padding-bottom: 10px
+        .modal
+            padding: 20px 20px 30px
+
+            @include breakpoint($breakpoint-tablet-mobile-small, false)
+                padding: 0
+                padding-top: 20px
+
+            form.auth-form
+                grid-gap: 15px !important
+
+                @include breakpoint($breakpoint-mini-desktop, false)
+                    grid-gap: 10px !important
+
+                .check-box
+                    label
+                        font-size: 13px
+
+                        @include breakpoint($breakpoint-mini-desktop, false)
+                            font-size: 11px
+
+                .select-box
+                    background-color: $bg-color
+                    border-radius: 5px
+                    width: 100%
+
+                    input
+                        padding: 15px 10px !important
+                        border: none
+                        background: none
+                        outline: none
+                        width: 100%
+                    ul
+                        width: 100%
+                        left: 0
+                        top: 18px
+
+                .inputs
+                    margin-bottom: 0

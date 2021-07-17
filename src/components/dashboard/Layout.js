@@ -6,6 +6,7 @@ import { ROUTE_LINKS } from '../../utils/routing';
 function Layout({ isOwner = false, isHR = false, isEmployee = false, children }) {
     const navs = ROUTE_LINKS.DASHBOARD;
     const [currentTab, setCurrentTab] = useState('HOME');
+    const { company_name } = JSON.parse(window.localStorage.getItem('company'));
 
     const handleChangeTab = (tab) => setCurrentTab(tab);
 
@@ -15,9 +16,12 @@ function Layout({ isOwner = false, isHR = false, isEmployee = false, children })
             Array.from(document.querySelector('.navs').children).forEach((child) => {
                 child.classList.remove('active');
             });
-            const nav = document.querySelector(`#${currentTab === 'COMPANY_NAME' ? 'HOME' : currentTab}`);
+
+            const nav = document.querySelector(`#${currentTab === company_name.toLocaleUpperCase() ? 'HOME' : currentTab}`);
             nav.classList.add('active');
         }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentTab]);
 
     return (
@@ -42,7 +46,7 @@ function Layout({ isOwner = false, isHR = false, isEmployee = false, children })
                                 </div>
                             </div>
                             <div className='dashboard-content'>
-                                <div className='dashboard-title pd-l-20 pd-r-20 pd-t-10 pd-b-10'>{currentTab === 'COMPANY_NAME' ? 'DASHBOARD' : currentTab}</div>
+                                <div className='dashboard-title pd-l-20 pd-r-20 pd-t-10 pd-b-10'>{currentTab === company_name.toLocaleUpperCase() ? 'DASHBOARD' : currentTab}</div>
                                 <div className='content pd-20'>{children}</div>
                             </div>
                         </div>

@@ -24,6 +24,7 @@ function CompanySignup() {
         e.preventDefault();
 
         // make request with Data
+        window.localStorage.setItem('company', JSON.stringify(state));
 
         setIsCompleted(true);
         console.log(state);
@@ -34,7 +35,7 @@ function CompanySignup() {
     };
 
     return isCompleted ? (
-        <Redirect to='/email-verification' />
+        <Redirect to='/login' />
     ) : (
         <Template heading={'Create Company Account'}>
             <form onSubmit={handleSubmit} className='form-container'>

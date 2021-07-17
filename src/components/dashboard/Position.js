@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Input from '../utils/Input';
+import Modal from '../utils/Modal';
 import SearchTableApp from '../utils/Table';
 import Layout from './Layout';
 
@@ -16,6 +17,9 @@ let new_id = 4;
 const Position = () => {
     const [state, setState] = useState(roleData);
     const [newRole, setNewRole] = useState('');
+    const [modal, setModal] = useState({ edit_postion: false });
+    const [positionId, setPositionId] = useState(null);
+    const [position, setPosition] = useState(null);
 
     const handleOnDelete = (id) => {
         const new_data = Object.values(state)
@@ -30,7 +34,7 @@ const Position = () => {
         setState(new_data);
     };
 
-    const handleChange = (event) => setNewRole(event.target.value);
+    const handleSetRoleChange = (event) => setNewRole(event.target.value);
 
     const handleAddPosition = () => {
         if (!newRole) return;
@@ -41,11 +45,41 @@ const Position = () => {
         setNewRole('');
     };
 
+    const handleChange = (event) => setPosition({ ...position, [event.target.name]: event.target.value });
+
+    const handleOnEdit = (id) => {
+        setPositionId(id);
+        setModal({ edit_postion: true });
+
+        const posObject = Object.values(state).filter((pos, i) => i === positionId)[0];
+        setPosition(posObject);
+    };
+
+    const handleEmployeeUpdate = () => {
+        const newObj = Object.values(state).map((emp, i) => {
+            const dataArr = [];
+            if (i === positionId) {
+                dataArr.push(position);
+            } else {
+                dataArr.push(emp);
+            }
+
+            return dataArr[0];
+        });
+
+        setState(newObj);
+        setModal({ ...modal, close: true });
+        setPosition(null);
+        setPositionId(null);
+    };
+
     const data = Object.values(state).map((role, i) => {
         role['action'] = (
             <div className='actions'>
                 <div className='flex justify-space-evenly align-center'>
-                    <div className='btn table-action primary-bg'>edit</div>
+                    <div className='btn table-action primary-bg' onClick={() => handleOnEdit(i)}>
+                        edit
+                    </div>
                     <div className='btn table-action danger-bg' onClick={() => handleOnDelete(i)}>
                         delete
                     </div>
@@ -57,11 +91,24 @@ const Position = () => {
     });
 
     return (
-        <div>
+        <Fragment>
+            {modal.edit_postion && position && (
+                <Modal title='Edit Position' modal={modal} setModal={setModal} modalSize='1000px'>
+                    <Input type='text' onChange={handleChange} name='name' label='Role' value={position?.name} className='col-lg-6 col-md-6 col-sm-6 col-xs-12' />
+                    <Input type='text' onChange={handleChange} name='no_employees' label='Number Of Employees' value={position?.no_employees} className='col-lg-6 col-md-6 col-sm-6 col-xs-12' />
+                    <Input type='text' onChange={handleChange} name='salary' label='Salary' value={position?.salary} className='col-lg-6 col-md-6 col-sm-6 col-xs-12' />
+                    <div className='btn-container col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                        <div className='div-btn primary-bg' onClick={handleEmployeeUpdate}>
+                            Save Changes
+                        </div>
+                    </div>
+                </Modal>
+            )}
+
             <Layout isOwner={true}>
                 <div className='employee-container'>
                     <div className='flex align-center justify-flex-end'>
-                        <Input type='text' name='role' placeholder='add new role' value={newRole} onChange={handleChange} />
+                        <Input type='text' name='role' placeholder='add new role' value={newRole} onChange={handleSetRoleChange} />
                         <div className='btn primary-bg mg-l-10' onClick={handleAddPosition}>
                             Add New Position
                         </div>
@@ -69,7 +116,7 @@ const Position = () => {
                     <SearchTableApp data={data} className='col-lg-12 col-md-12 col-sm-12 col-xs-12' />
                 </div>
             </Layout>
-        </div>
+        </Fragment>
     );
 };
 

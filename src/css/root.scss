@@ -39,6 +39,11 @@ body #root {
     ul {
         list-style: none
     }
+
+    &.disable {
+        height: 100vh;
+        overflow: hidden;
+    }
 }
 
 .primary {
